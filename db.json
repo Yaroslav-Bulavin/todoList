@@ -1,32 +1,3 @@
 {
-  "lists": [
-    {
-      "title": "111111111",
-      "isComplete": false,
-      "isShow": false,
-      "description": "121111",
-      "id": 1
-    },
-    {
-      "title": "122222222",
-      "isComplete": false,
-      "isShow": false,
-      "description": "12211111",
-      "id": 2
-    },
-    {
-      "title": "13333333333",
-      "isComplete": false,
-      "isShow": false,
-      "description": "31333333333",
-      "id": 3
-    },
-    {
-      "title": "155444444444444",
-      "isComplete": false,
-      "isShow": false,
-      "description": "15555555555555554",
-      "id": 4
-    }
-  ]
+  "lists": []
 }

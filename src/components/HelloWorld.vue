@@ -10,7 +10,7 @@
         </form>
         <h2>My tasks:</h2>
         <ul>
-            <li v-for="(list, index) in allLists" :key="list.id">
+            <li v-for="list in allLists" :key="list.id">
                 <div class="menu">
                     <input type="checkbox" v-on:change="completeTask(list)" v-bind:checked="list.isComplete"/>
                     <span class="id">{{list.id}}.</span>
@@ -25,10 +25,10 @@
                 <div class="content" v-bind:class="{done: list.isComplete}" v-if="list.isShow">
                     <p>{{list.description}}</p>
                 </div>
-                <div class="">{{index}}</div>
             </li>
         </ul>
-        <button @click="DelAll" class="btn">Delete all</button>
+        <button @click="DelAll" class="btn btn--delAll">Delete all</button>
+
     </div>
 </template>
 
@@ -44,7 +44,11 @@
                 header: "Todo List",
                 titleTodo: "",
                 descrTodo: "",
+
             }
+        },
+        components: {
+
         },
         computed: {
             ...mapGetters(["allLists"]),
@@ -54,6 +58,7 @@
         },
         methods: {
             ...mapMutations(["createList", "deleteList", "deleteAllLists", "addListsData"]),
+
             addTodo() {
 
                 this.$store.dispatch('addList', {
@@ -78,7 +83,8 @@
             },
             contentShow: function (list) {
                 list.isShow = ! list.isShow;
-            }
+            },
+
 
         },
         mounted() {
@@ -95,7 +101,12 @@
 
 </script>
 
-<style scoped>
+<style>
+
+    .table {
+        margin-bottom: 40px;
+    }
+
     .form {
         display: flex;
         flex-direction: column;
@@ -108,11 +119,11 @@
         text-align: left;
     }
     textarea {
-        resize: none;
+        resize: none !important;
         border: 1px solid #000000;
         width: 100%;
         max-width: 300px;
-        margin-bottom: 10px;
+        margin-bottom: 10px !important;
     }
     .id {
         font-size: 20px;
@@ -136,7 +147,7 @@
 
     .btn {
         height: 31px;
-        width: 306px;
+        width: 300px;
         background-color: #42b983;
         color: #ffffff;
         border: 2px solid #42b983;
@@ -199,6 +210,12 @@
     .del {
         margin-left: auto;
         width: 120px;
+    }
+    .btn--delAll {
+        margin-bottom: 40px;
+    }
+    .formView {
+        margin-top: 40px;
     }
 
 </style>

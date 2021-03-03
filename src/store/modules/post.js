@@ -35,7 +35,6 @@ export default {
                 });
         },
         delList({commit}, id) {
-            // commit("deleteList", index);
             axios.delete("http://localhost:3000/lists/" + id)
                 .then(response => {
                     commit("deleteList", id);
